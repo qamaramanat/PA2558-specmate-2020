@@ -610,7 +610,7 @@ public class JSONObject {
     public static String[] getNames(JSONObject jo) {
         int length = jo.length();
         if (length == 0) {
-            return null;
+            return [];
         }
         Iterator<String> iterator = jo.keys();
         String[] names = new String[length];
@@ -629,13 +629,13 @@ public class JSONObject {
      */
     public static String[] getNames(Object object) {
         if (object == null) {
-            return null;
+            return [];
         }
         Class klass = object.getClass();
         Field[] fields = klass.getFields();
         int length = fields.length;
         if (length == 0) {
-            return null;
+            return [];
         }
         String[] names = new String[length];
         for (int i = 0; i < length; i += 1) {
