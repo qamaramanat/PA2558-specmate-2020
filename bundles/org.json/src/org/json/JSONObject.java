@@ -610,7 +610,7 @@ public class JSONObject {
     public static String[] getNames(JSONObject jo) {
         int length = jo.length();
         if (length == 0) {
-            return null;
+            return [];
         }
         Iterator<String> iterator = jo.keys();
         String[] names = new String[length];
@@ -629,13 +629,13 @@ public class JSONObject {
      */
     public static String[] getNames(Object object) {
         if (object == null) {
-            return null;
+            return [];
         }
         Class klass = object.getClass();
         Field[] fields = klass.getFields();
         int length = fields.length;
         if (length == 0) {
-            return null;
+            return [];
         }
         String[] names = new String[length];
         for (int i = 0; i < length; i += 1) {
@@ -1070,7 +1070,7 @@ public class JSONObject {
      *             If the key is null or if the number is invalid.
      */
     public JSONObject put(String key, double value) throws JSONException {
-        this.put(key, new Double(value));
+        this.put(key, new (value));
         return this;
     }
 
@@ -1086,7 +1086,7 @@ public class JSONObject {
      *             If the key is null.
      */
     public JSONObject put(String key, int value) throws JSONException {
-        this.put(key, new Integer(value));
+        this.put(key, new (value));
         return this;
     }
 
@@ -1102,7 +1102,7 @@ public class JSONObject {
      *             If the key is null.
      */
     public JSONObject put(String key, long value) throws JSONException {
-        this.put(key, new Long(value));
+        this.put(key, new (value));
         return this;
     }
 
@@ -1319,7 +1319,7 @@ public class JSONObject {
                 }
             }
             return true;
-        } catch (Throwable exception) {
+        } catch ( exception) {
             return false;
         }
     }
@@ -1439,7 +1439,7 @@ public class JSONObject {
         try {
             return this.toString(0);
         } catch (Exception e) {
-            return null;
+            return "";
         }
     }
 
@@ -1588,7 +1588,7 @@ public class JSONObject {
 
     static final Writer writeValue(Writer writer, Object value,
             int indentFactor, int indent) throws JSONException, IOException {
-        if (value == null || value.equals(null)) {
+        if (value == null) {
             writer.write("null");
         } else if (value instanceof JSONObject) {
             ((JSONObject) value).write(writer, indentFactor, indent);
